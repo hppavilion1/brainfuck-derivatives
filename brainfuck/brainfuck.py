@@ -49,5 +49,29 @@ def execute(script):
 
         elif c == ',':
             tape[ip] = ord(raw_input())
-            
+
+        elif c == '[':
+            if tape[ip] == 0:
+                foundendend = 0
+                i2 = 0
+                while foundend != 1:
+                    i2+=1
+                    if script[i2] == '[':
+                        foundend -= 1
+                    elif script[i2] == ']':
+                        foundend += 1
+                i = i2
+                
+        elif c == ']':
+            if tape[ip] == 0:
+                foundendend = 0
+                i2 = 0
+                while foundend != 1:
+                    i2-=1
+                    if script[i2] == ']':
+                        foundend -= 1
+                    elif script[i2] == '[':
+                        foundend += 1
+                i = i2
+
         i+=1
