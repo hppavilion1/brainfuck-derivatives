@@ -1,9 +1,34 @@
 from __future__ import print_function
+import re
 import sys
+
+STRING       = 'STRING'
+CHAR         = 'CHAR'
+EXP          = 'EXPRESSION'
+CELLCOMMAND  = 'cCOMMAND'
+TAPECOMMAND  = 'tCOMMAND'
+STACKCOMMAND = 'sCOMMAND'
 
 def lex(script):
     r = []
+    s = 0
+    matchables = {(r'"[^"]*',    STRING),
+                  (r'\'.\'',     CHAR),
+                  )r'\'.{2,}\'', EXP
+                  (r'\+',        CELLCOMMAND),
+                  (r'-',         CELLCOMMAND),
+                  (r'>',         TAPECOMMAND),
+                  (r'<',         TAPECOMMAND),
+                  ()
+                  }
 
+    while s < len(script):
+        for x in matchables:
+            
+            if re.match(x[0], script[s:]):
+                r.append((re.groups()[1], x[1]))
+        
+        s+=len(re.groups()[1])
     return r
 
 def execute(script):
