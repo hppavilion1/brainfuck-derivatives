@@ -76,7 +76,9 @@ def execute(script):
                     elif script[i2] == '[':
                         foundend += 1
                 i = i2
-        #print(tape)
+
+        elif c == '#':
+            print('Debug: '+', '.join(tape))
         i+=1
 
 if __name__ == '__main__':
