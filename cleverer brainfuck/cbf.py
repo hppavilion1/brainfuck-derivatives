@@ -3,23 +3,7 @@ import sys
 
 def lex(script):
     r = []
-    for x in script:
-        if x == '>':
-            r.append(x)
-        elif x == '<':
-            r.append(x)
-        elif x == '+':
-            r.append(x)
-        elif x == '-':
-            r.append(x)
-        elif x == '.':
-            r.append(x)
-        elif x == ',':
-            r.append(x)
-        elif x == '[':
-            r.append(x)
-        elif x == ']':
-            r.append(x)
+
     return r
 
 def execute(script):
