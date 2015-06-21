@@ -35,4 +35,10 @@ def execute(script):
             
         elif c == '<':
             ip-=1
+
+        elif c == '+':
+            tape[ip]+=1
+
+        elif c == '-':
+            tape[ip]-=1
         i+=1
