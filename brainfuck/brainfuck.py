@@ -56,7 +56,7 @@ def execute(script):
         elif c == '[':
             if tape[ip] == 0:
                 foundend = 0
-                i2 = 0
+                i2 = i
                 while foundend != 1:
                     i2+=1
                     if script[i2] == '[':
@@ -66,14 +66,14 @@ def execute(script):
                 i = i2
                 
         elif c == ']':
-            if tape[ip] > 0:
+            if tape[ip] != 0:
                 foundend = 0
-                i2 = 0
+                i2 = i
                 while foundend != 1:
                     i2-=1
-                    if script[i2] == '[':
+                    if script[i2] == ']':
                         foundend -= 1
-                    elif script[i2] == ']':
+                    elif script[i2] == '[':
                         foundend += 1
                 i = i2
         #print(tape)
