@@ -33,17 +33,19 @@ def execute(script):
 
         if c == '>':
             ip+=1
-            if len(tape) < ip:
+            while len(tape)-1 < ip:
                 tape.append(0)
-            
+
         elif c == '<':
             ip-=1
 
         elif c == '+':
             tape[ip]+=1
+            tape[ip]%=256
 
         elif c == '-':
             tape[ip]-=1
+            tape[ip]%=255
 
         elif c == '.':
             print(chr(tape[ip]), end='')
@@ -78,4 +80,4 @@ def execute(script):
         i+=1
 
 if __name__ == '__main__':
-    execute(sys.argv[1])
+    execute(open(sys.argv[1]).read())
