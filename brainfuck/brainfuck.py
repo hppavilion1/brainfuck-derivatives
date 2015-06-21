@@ -75,3 +75,6 @@ def execute(script):
                 i = i2
 
         i+=1
+
+if __name__ == '__main__':
+    execute(sys.argv[1])
