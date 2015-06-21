@@ -55,7 +55,7 @@ def execute(script):
 
         elif c == '[':
             if tape[ip] == 0:
-                foundendend = 0
+                foundend = 0
                 i2 = 0
                 while foundend != 1:
                     i2+=1
@@ -66,18 +66,21 @@ def execute(script):
                 i = i2
                 
         elif c == ']':
-            if tape[ip] == 0:
-                foundendend = 0
+            if tape[ip] > 0:
+                foundend = 0
                 i2 = 0
                 while foundend != 1:
                     i2-=1
-                    if script[i2] == ']':
+                    if script[i2] == '[':
                         foundend -= 1
-                    elif script[i2] == '[':
+                    elif script[i2] == ']':
                         foundend += 1
                 i = i2
-
+        #print(tape)
         i+=1
 
 if __name__ == '__main__':
-    execute(open(sys.argv[1]).read())
+    try:
+        execute(open(sys.argv[1]).read())
+    except:
+        execute(open(raw_input()).read())
