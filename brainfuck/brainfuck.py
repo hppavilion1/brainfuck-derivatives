@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 def lex(script):
     r = []
     for x in script:
@@ -41,4 +43,11 @@ def execute(script):
 
         elif c == '-':
             tape[ip]-=1
+
+        elif c == '.':
+            print(chr(tape[ip]), end='')
+
+        elif c == ',':
+            tape[ip] = ord(raw_input())
+            
         i+=1
