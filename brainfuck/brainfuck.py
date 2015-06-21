@@ -22,12 +22,16 @@ def lex(script):
 def execute(script):
     script = lex(script)
 
+    tape = [0]
+    ip = 0
     i = 0
     while i < len(script):
         c = script[i]
 
         if c == '>':
             ip+=1
+            if len(tape) < ip:
+                tape.append(0)
             
         elif c == '<':
             ip-=1
